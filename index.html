@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Livestream Player</title>
+</head>
+<body>
+    <video id="livestream" controls></video>
+    <div id="overlay" style="position: absolute; top: 50px; left: 50px; color: white; font-size: 24px;"></div>
+
+    <script>
+        const videoElement = document.getElementById('livestream');
+        const overlayElement = document.getElementById('overlay');
+
+        // Function to load the RTSP stream into the video player.
+        function loadLivestream() {
+            const rtspUrl = 'YOUR_RTSP_URL_HERE';
+            videoElement.src = rtspUrl;
+            videoElement.play();
+        }
+
+        // Function to add an overlay to the video.
+        function addOverlay(content, top, left) {
+            overlayElement.textContent = content;
+            overlayElement.style.top = `${top}px`;
+            overlayElement.style.left = `${left}px`;
+        }
+
+        // Load the livestream and add an overlay.
+        loadLivestream();
+        addOverlay('Custom Overlay', 100, 100);
+    </script>
+</body>
+</html>
